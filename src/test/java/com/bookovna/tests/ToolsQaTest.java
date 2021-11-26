@@ -1,4 +1,4 @@
-package com.bookovna;
+package com.bookovna.tests;
 
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.*;
@@ -8,11 +8,7 @@ import java.io.File;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
-public class ToolsQaTest {
-    @BeforeAll
-    static void beforeAll() {
-        System.out.println("This is the before all method");
-    }
+public class ToolsQaTest extends TestBase {
 
     @AfterAll
     static void afterAll() {
