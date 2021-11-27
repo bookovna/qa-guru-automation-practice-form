@@ -1,14 +1,15 @@
 package com.bookovna.pages;
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+
+import java.io.File;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationPage {
-    // locators & elements
     private final String FORM_TITLE = "Student Registration Form";
     private SelenideElement
             formTitle = $(".practice-form-wrapper"),
@@ -20,11 +21,16 @@ public class RegistrationPage {
             datePickerYear = $(".react-datepicker__year-select"),
             datePickerMonth = $(".react-datepicker__month-select"),
             subjectsInput = $("#subjectsInput"),
-
+            pictureInput = $("#uploadPicture"),
+            currentAddressInput = $("#currentAddress.form-control"),
+            submitButton = $("#submit"),
             resultsTable = $(".table-responsive");
 
+    private ElementsCollection
+            hobbiesCheckboxes = $$("label[for^=hobbies-checkbox]"),
+            stateAndCityMenu = $$(".css-1wa3eu0-placeholder"),
+            stateAndCityOptions = $$(".css-yt9ioa-option");
 
-    // actions
     public RegistrationPage openPage() {
         open("https://demoqa.com/automation-practice-form");
         formTitle.shouldHave(text(FORM_TITLE));
@@ -69,6 +75,32 @@ public class RegistrationPage {
     public RegistrationPage fillSubjectsWithMath() {
         subjectsInput.sendKeys("m");
         $(".subjects-auto-complete__menu-list #react-select-2-option-0").click();
+        return this;
+    }
+
+    public RegistrationPage chooseHobbies(String value) {
+        hobbiesCheckboxes.find(text(value)).scrollIntoView(true).click();
+        return this;
+    }
+
+    public RegistrationPage uploadFile(File file) {
+        pictureInput.uploadFile(file);
+        return this;
+    }
+
+    public RegistrationPage setAddress(String currentAddress, String state, String city) {
+        currentAddressInput.setValue(currentAddress);
+
+        stateAndCityMenu.find(text("Select State")).scrollIntoView(true).click();
+        stateAndCityOptions.find(text(state)).click();
+
+        stateAndCityMenu.find(text("Select City")).click();
+        stateAndCityOptions.find(text(city)).click();
+        return this;
+    }
+
+    public RegistrationPage submitForm() {
+        submitButton.scrollIntoView(true).click();
         return this;
     }
 
