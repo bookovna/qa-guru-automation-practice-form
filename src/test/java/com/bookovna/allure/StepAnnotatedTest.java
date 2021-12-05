@@ -1,6 +1,7 @@
 package com.bookovna.allure;
 
 import com.bookovna.allure.steps.WebSteps;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class StepAnnotatedTest {
@@ -11,6 +12,7 @@ public class StepAnnotatedTest {
     private WebSteps steps = new WebSteps();
 
     @Test
+    @DisplayName("Найти Issue в репозитории " + ALLURE_REPOSITORY)
     public void testGithub() {
         steps.openGitMainPage();
         steps.searchForRepository(ALLURE_REPOSITORY);
