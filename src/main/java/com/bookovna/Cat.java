@@ -41,6 +41,10 @@ public class Cat {
     private class Head {
         String name = "кошачья голова";
         String diameter;
+        private class Whiskers {
+            int amountOfWhiskers;
+            int averageLength;
+        }
     }
 
     private class Tail {
