@@ -30,8 +30,8 @@ java {
 }
 
 dependencies {
+    implementation("com.codeborne:selenide:6.0.0")
     testImplementation (
-            "com.codeborne:selenide:5.25.1",
             "org.junit.jupiter:junit-jupiter:5.8.1",
             "org.assertj:assertj-core:3.21.0",
             "com.github.javafaker:javafaker:1.0.2",
