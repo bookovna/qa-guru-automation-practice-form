@@ -3,24 +3,19 @@ package com.bookovna;
 public class Main {
 
     public static void main(String[] args) {
-        Human masha = new Human();
+        Human masha = new Human("Маша", "Иванова");
+        Cat baisy = new Cat("Бейси");
 
-        masha.firstName = "Маша";
-        masha.lastName = "Иванова";
-        masha.age = 32;
-        masha.hasACat = true;
-
-        Cat baisy = new Cat();
-        baisy.name = "Бейси";
-        baisy.age = 12;
-        baisy.isDomestic = true;
-        baisy.weight = 4;
+        masha.setAge(32);
+        masha.setHasACat(true);
 
         masha.sayFirstName();
         masha.sayLastName();
         masha.incrementAge();
         masha.sayAge();
 
+        baisy.setAge(12);
+        baisy.setWeight(4);
         masha.sayCatsName(baisy);
         masha.sayCatsWeight(baisy);
 
@@ -29,5 +24,6 @@ public class Main {
 
         masha.sayCatsWeight(baisy);
         baisy.purr();
+
     }
 }
