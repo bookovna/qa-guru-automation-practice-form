@@ -13,7 +13,6 @@ public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
-        Configuration.startMaximized = true;
     }
 
     @AfterEach
