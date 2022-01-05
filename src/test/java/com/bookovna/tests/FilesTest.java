@@ -53,7 +53,7 @@ public class FilesTest {
     }
 
     @Test
-    @DisplayName("Скачанный xls файл содержит ожидаемый текст")
+    @DisplayName("Скачанный xls файл содержит в определенной ячейке ожидаемый текст")
     void downloadedXlsFile() throws IOException {
         open("https://filesamples.com/formats/xls");
         File file = $("a[class='btn btn-primary pull-right']").download();
