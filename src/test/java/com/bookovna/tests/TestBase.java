@@ -3,7 +3,7 @@ package com.bookovna.tests;
 import com.bookovna.pages.RegistrationPage;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import helpers.Attach;
+import com.bookovna.helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
