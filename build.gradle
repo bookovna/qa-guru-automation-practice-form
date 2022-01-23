@@ -52,3 +52,9 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+task owner_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags "owner"
+    }
+}
