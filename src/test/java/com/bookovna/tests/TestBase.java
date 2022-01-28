@@ -30,7 +30,7 @@ public class TestBase {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         Configuration.startMaximized = true;
 
-        Configuration.remote = format(System.getProperty("REMOTE"), credentials.login(), credentials.password());
+        Configuration.remote = format(System.getProperty("REMOTEURL"), credentials.login(), credentials.password());
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
