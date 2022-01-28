@@ -15,6 +15,8 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.Tag;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import static java.lang.String.format;
+
 @Tag("Owner")
 public class TestBase {
 
@@ -27,7 +29,7 @@ public class TestBase {
 
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         Configuration.startMaximized = true;
-        Configuration.remote = "https://" + credentials.login() + ":" + credentials.password() + "@selenoid.autotests.cloud/wd/hub/";
+        Configuration.remote = format(Configuration.remote, credentials.login(), credentials.password());
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
